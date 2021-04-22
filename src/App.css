@@ -236,9 +236,7 @@ html.boxed .page {
   margin-right: auto;
 }
 
-/* .edit_number {
-  font-family: "Six Caps", sans-serif;
-} */
+
 
 /*
 * @section      TM Grid System
@@ -9917,8 +9915,9 @@ html:not(.lt-ie10) .box-lg .box__bottom {
     margin-top: 0;
   }
 }
+
+
 .brand .brand_name {
-  font-family: "Six Caps", sans-serif;
   font-size: 210px;
   line-height: 40px;
   color: #1a1a1a;
@@ -9930,7 +9929,6 @@ html:not(.lt-ie10) .box-lg .box__bottom {
   }
 }
 .brand .brand_slogan {
-  font-family: "Oswald", sans-serif;
   font-size: 46px;
   line-height: 40px;
   color: #303030;
@@ -13205,4 +13203,8 @@ img.mfp-img {
 .gallery > div:nth-child(2),
 .gallery > div:nth-child(3) {
   display: block;
+}
+
+.edit_fonts  {
+  font-family: sans-serif;
 }

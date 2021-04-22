@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Redirect } from "react-router-dom"
 import { YouTel } from "../../../../common/YouTel"
 
 import page1_img_06 from "../../../../images/page1-img_06.jpg"
@@ -7,69 +7,19 @@ import page1_img_07 from "../../../../images/page1-img_07.jpg"
 import page1_img_03_original from "../../../../images/page1-img_03_original.jpg"
 import page1_img_03 from "../../../../images/page1-img_03.jpg"
 import page1_img_04_original from "../../../../images/page1-img_04_original.jpg"
+import { gallery } from "./LocalState"
 
-export const Content = (props) => {
-    const [values, setValue] = useState('')
-    const onChange = (event) => {
-        setValue(event.target.value)
-    }
-    return(
-        <main className="page-content">
-        {/* <!-- Welcome --> */}
-        <section className="well-xl bg-color-1 well-sm">
-                <div className="container text-center relative">
-                <span className="counter"></span>
-                <div className="number_section"><h4>Добро пожаловать</h4>
-                <h3>в мотошколу в Ростове-на-Дону!</h3>
-                </div>
-                <p>Мы предлагаем профессиональное обучение езде на мотоцикле. С тебя — желание учиться, а с нас — опытные инструкторы, личный мотоцикл, площадка для обучения и безопасное вождение.</p>
-                    <p>Обучение в школе доступно для профи и начинающих водителей. Мы делаем упор на практику, поэтому вы быстро станете уверенным водителем.</p>
-                    <p>Опытных мотоциклистов мы обучим стантрайдингу — трюковой езде. Вилли, дрифт, стоппи, бернаут — смело открывайте для себя современное искусство управления мотоциклом! </p>
+const Gallery = (props) => {
+    return(<>
+        <div className="col-md-4">
+            <div className="thumb wow fadeInLeft">
+                <NavLink to="#" alt="">
+                    <img src={props.img} width="683" height="399" alt=""/>
+                    <div className="thumb__overlay"></div>
+                </NavLink>
             </div>
-        </section>
-        {/* <!-- END Welcom--> */}
-        {/* <!-- Gallery --> */}
-        <section className="bg-image">
-            <div className="container">
-                <div className="row">
-                    <div className="col-xs-6 col-md-4">
-                      <div className="number_section-var-1 relative text-center">  <span className="counter"></span>
-                        <div className="number_section text-center"><h4>Галерея</h4>
-                            {/* <!-- <h3> photo gallery</h3> --> */}
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div data-lightbox="gallery" className="offset-2">
-
-      <div className="row row-no-gutter gallery">
-                    <div className="col-md-4">
-                        <div className="thumb wow fadeInLeft">
-                            <NavLink to={page1_img_03_original} data-lightbox="image">
-                                <img src={page1_img_03} width="683" height="399" alt=""/>
-                                <div className="thumb__overlay"></div>
-                            </NavLink>
-                        </div>
-                        </div>
-                    <div className="col-md-4">
-                        <div className="thumb  wow fadeIn">
-                            <NavLink to={page1_img_04_original} data-lightbox="image">
-                                <img src="image/page1-img_04.jpg" width="684" height="399" alt=""/>
-                                <div className="thumb__overlay"></div>
-                            </NavLink>
-                        </div>
-                    </div>
-                    <div className="col-md-4 wow fadeInRight">
-                        <div className="thumb ">
-                            <NavLink to="images/page1-img_05_original.jpg" data-lightbox="image">
-                                <img src="images/page1-img_05.jpg" width="683" height="399" alt=""/>
-                                <div className="thumb__overlay"></div>
-                            </NavLink>
-                        </div>
-                     </div>
-          {/* <div><a href="images/gallery/2.jpg" data-lightbox="image"></a></div>
+        </div>
+        {/* <div><a href="images/gallery/2.jpg" data-lightbox="image"></a></div>
           <div><a href="images/gallery/3.jpg" data-lightbox="image"></a></div>
           <div><a href="images/gallery/4.jpg" data-lightbox="image"></a></div>
           <div><a href="images/gallery/5.jpg" data-lightbox="image"></a></div>
@@ -96,8 +46,50 @@ export const Content = (props) => {
           <div><a href="images/gallery/26.jpg" data-lightbox="image"></a></div>
           <div><a href="images/gallery/27.jpg" data-lightbox="image"></a></div>
           <div><a href="images/gallery/28.jpg" data-lightbox="image"></a></div> */}
+          </>
+    )
+}
+
+export const Content = (props) => {
+    const [values, setValue] = useState('')
+    const onChange = (event) => {
+        setValue(event.target.value)
+    }
+    return(
+        <main className="page-content">
+        {/* <!-- Welcome --> */}
+        <section className="well-xl bg-color-1 well-sm">
+                <div className="container text-center relative">
+                <span className="counter"></span>
+                <div className="number_section edit_fonts"><h4>Добро пожаловать</h4>
+                <h3 className="edit_fonts">в мотошколу в Ростове-на-Дону!</h3>
+                </div>
+                <p>Мы предлагаем профессиональное обучение езде на мотоцикле. С тебя — желание учиться, а с нас — опытные инструкторы, личный мотоцикл, площадка для обучения и безопасное вождение.</p>
+                    <p>Обучение в школе доступно для профи и начинающих водителей. Мы делаем упор на практику, поэтому вы быстро станете уверенным водителем.</p>
+                    <p>Опытных мотоциклистов мы обучим стантрайдингу — трюковой езде. Вилли, дрифт, стоппи, бернаут — смело открывайте для себя современное искусство управления мотоциклом! </p>
+            </div>
+        </section>
+        {/* <!-- END Welcom--> */}
+        {/* <!-- Gallery --> */}
+        <section className="bg-image">
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-6 col-md-4">
+                      <div className="number_section-var-1 relative text-center">  <span className="counter"></span>
+                        <div className="number_section text-center"><h4>Галерея</h4>
+                            {/* <!-- <h3> photo gallery</h3> --> */}
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
+        </section>
+        <div data-lightbox="gallery" className="offset-2">
+
+        <div className="row row-no-gutter gallery">
+            {gallery.map( (e) => <Gallery key={e.id} img={e.img}/>)}
+        </div>
+    </div>
         {/* <!-- END Gallery--> */}
         
         <div className="container">
@@ -186,38 +178,32 @@ export const Content = (props) => {
                     <div className="col-md-4">
                         <span className=" cars car-repire-icon-05 "></span>
                         <h4 className="text-bold"><NavLink to="#">любой уровень</NavLink></h4>
-                        {/* <!-- <p className="inset-2">Thunderbikes, Minitwins,
-                            400s, YPMs</p> --> */}
+                         <p className="inset-2">Нам не важно как хорошо и как долго ты ездишь, мы все равно повысим твой скилл</p> 
                     </div>
                     <div className="col-md-4">
                         <span className=" cars car-repire-icon-40 "></span>
                         <h4 className="text-bold"><NavLink to="#">езда в городе</NavLink></h4>
-                        {/* <!-- <p>Regular masterclassNamees on suspension
-                            and other racing mysteries! </p> --> */}
+                         <p>У нас ученики катаются не только по площадке. Ты поездишь по городу с инструктором</p> 
                     </div>
                     <div className="col-md-4">
                         <span className=" cars car-repire-icon-50 "></span>
                         <h4 className="text-bold"><NavLink to="#">стантрайдинг</NavLink></h4>
-                        {/* <!-- <p>Free consultations & support for race
-                            fitness from our Nutritionist</p> --> */}
+                        <p> Если тебе уже скучно просто перемещаться  на байке мы научим тебя делать это эффектно!</p> 
                     </div>
                     <div className="col-md-4">
                         <span className=" cars car-repire-icon-05 "></span>
-                        <h4 className="text-bold"><NavLink to="#">личный инструктор</NavLink></h4>
-                        {/* <!-- <p className="inset-2">Thunderbikes, Minitwins,
-                            400s, YPMs</p> --> */}
+                        <h4><NavLink to="#"><p className="text-bold">личный</p> <p className="text-bold">инструктор</p>  </NavLink></h4>
+                         <p className="inset-2">У  вас будет собственный наставник с большим опытом езды на байке</p> 
                     </div>
                     <div className="col-md-4">
                         <span className=" cars car-repire-icon-40 "></span>
                         <h4 className="text-bold"><NavLink to="#">сопровождение на треке</NavLink></h4>
-                        {/* <!-- <p>Regular masterclassNamees on suspension
-                            and other racing mysteries! </p> --> */}
+                         <p>Наши инструктора помогут вам выжать максимум из вашего железного коня</p> 
                     </div>
                     <div className="col-md-4">
                         <span className=" cars car-repire-icon-50 "></span>
                         <h4 className="text-bold"><NavLink to="#">индивидуальный график обучения</NavLink></h4>
-                        {/* <!-- <p>Free consultations & support for race
-                            fitness from our Nutritionist</p> --> */}
+                        <p>Не вам придется под нас подстраиваться а мы подстроимся под вас</p> 
                     </div>
                 </div>
             </div>

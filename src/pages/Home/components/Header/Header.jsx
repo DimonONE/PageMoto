@@ -22,11 +22,11 @@ export const Header = (props) => {
                 </div>
                 <div className="col-lg-4 col-lg-preffix-5 col-md-4 col-md-preffix-3 col-sm-6 col-sm-preffix-6">
                     <div className="brand">
-                        <NavLink to="/home"><span className="brand_name">Moto</span>
-                        <span className="brand_slogan">Racing Club</span></NavLink>
+                        <NavLink to="/home"><span className="brand_name edit_fonts">Moto</span>
+                        <span className="brand_slogan edit_fonts">Racing Club</span></NavLink>
                     </div>
-                      <h3 className="offset-1 width-h3">Мотошкола в Ростове-на-Дону</h3>
-                      <h6>Мечтаешь научиться ездить на мотоцикле, освоить трюки и экстремальное вождение? Хватит откладывать на потом! Приходи в мотошколу в Ростове-на-Дону.</h6>
+                      <h3 className="offset-1 width-h3 edit_fonts">Мотошкола в Ростове-на-Дону</h3>
+                      <h6 className="edit_fonts">Мечтаешь научиться ездить на мотоцикле, освоить трюки и экстремальное вождение? Хватит откладывать на потом! Приходи в мотошколу в Ростове-на-Дону.</h6>
   
                       {/* <!-- RD Mailform --> */}
                       <form className='rd-mailform' method="post" action="bat/rd-mailform.php">
