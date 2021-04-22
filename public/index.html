@@ -3,6 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- Site Title -->
+    <title>Home</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -10,6 +17,14 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Stylesheets -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <!-- <link
+      href="//fonts.googleapis.com/css?family=Ubuntu:400,300,500,700%7COswald:400,700,300%7CSix+Caps"
+      rel="stylesheet"
+      type="text/css"
+    /> -->
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -27,17 +42,39 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+        <!-- The Main Wrapper -->
+        <div class="page">
+          <!--For older internet explorer-->
+          <div
+            class="old-ie"
+            style="
+              background: #212121;
+              padding: 10px 0;
+              box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+              clear: both;
+              text-align: center;
+              position: relative;
+              z-index: 1;
+            "
+          >
+            <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+              <img
+                src="images/ie8-panel/warning_bar_0000_us.jpg"
+                height="42"
+                width="820"
+                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
+              />
+            </a>
+          </div>
+          <!--END block for older internet explorer-->
+
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <!-- Core Scripts -->
+      <script src="../src/js/core.min.js"></script>
+      <script src="../src/js/html5shiv.min.js"></script>
+      <!-- Подключение jQuery плагина Masked Input -->
+      <script src="../src/js/jquery.maskedinput.min.js"></script>
+      <script src="../src/js/script.js"></script>
   </body>
 </html>
