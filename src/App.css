@@ -236,8 +236,6 @@ html.boxed .page {
   margin-right: auto;
 }
 
-
-
 /*
 * @section      TM Grid System
 *
@@ -751,6 +749,7 @@ html.lt-ie10 .row-no-gutter > * + [class*="col"],
     flex-basis: 50%;
     max-width: 50%;
   }
+
   .row > .col-sm-preffix-6 {
     margin-left: 50%;
   }
@@ -978,6 +977,7 @@ html.lt-ie10 .row-no-gutter > * + [class*="col"],
     flex-basis: 33.33334%;
     max-width: 33.33334%;
   }
+
   .row > .col-md-preffix-4 {
     margin-left: 33.33333%;
   }
@@ -1248,7 +1248,12 @@ html.lt-ie10 .row-no-gutter > * + [class*="col"],
     max-width: 41.66667%;
   }
   .row > .col-lg-preffix-5 {
-    margin-left: 41.66667%;
+    margin-left: 33.66667%;
+  }
+  @media (min-width: 1400px) {
+    .row > .col-lg-preffix-5 {
+      margin-left: 40.66667%;
+    }
   }
   .row > .col-lg-push-5 {
     -webkit-order: 5;
@@ -9834,7 +9839,8 @@ html:not(.lt-ie10) .box-lg .box__bottom {
   overflow: hidden;
   margin-top: -1px;
 }
-.thumb > a > img {
+
+.thumb > span > img {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -9908,39 +9914,26 @@ html:not(.lt-ie10) .box-lg .box__bottom {
 */
 .brand {
   text-transform: uppercase;
-  margin-top: 93px;
+  margin-top: 0;
 }
-@media (max-height: 641px) {
-  .brand {
-    margin-top: 0;
-  }
-}
-
 
 .brand .brand_name {
-  font-size: 210px;
+  font-size: 150px;
   line-height: 40px;
   color: #1a1a1a;
   letter-spacing: 18px;
 }
-@media (max-height: 641px) {
-  .brand .brand_name {
-    font-size: 150px;
-  }
-}
+
 .brand .brand_slogan {
   font-size: 46px;
   line-height: 40px;
   color: #303030;
   font-weight: 100;
-  margin-top: 103px;
+  margin-top: 50px;
   display: block;
   letter-spacing: 4.5px;
 }
-@media (max-height: 641px) {
-  .brand .brand_slogan {
-    margin-top: 50px;
-  }
+@media (min-width: 1280px) {
 }
 
 /*
@@ -12064,8 +12057,8 @@ html.boxed .rd-navbar--is-clone {
   border: 1px solid inherit;
   border-radius: 1px;
 }
-.mfSelect .value:before,
-.mfSelect .value:after {
+.mfSelect .value::before,
+.mfSelect .value::after {
   position: absolute;
   right: 12px;
   top: 20.5px;
@@ -12077,12 +12070,12 @@ html.boxed .rd-navbar--is-clone {
   text-align: center;
   transition: 0.4s all ease;
 }
-.mfSelect .value:before {
+.mfSelect .value::before {
   content: "\f0c9";
   -webkit-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
 }
-.mfSelect .value:after {
+.mfSelect .value::after {
   content: "\f107";
   font-size: 24px;
   -webkit-transform: rotate(-180deg) scale(0);
@@ -12099,15 +12092,15 @@ html.boxed .rd-navbar--is-clone {
   color: #1a1a1a;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.12), 3px 4px 8px 0px rgba(0, 0, 0, 0.11);
 }
-.mfSelect.show .value:before,
-.mfSelect.show .value:after {
+.mfSelect.show .value::before,
+.mfSelect.show .value::after {
   color: #1a1a1a;
 }
-.mfSelect.show .value:before {
+.mfSelect.show .value::before {
   -webkit-transform: rotate(90deg) scale(0);
   transform: rotate(90deg) scale(0);
 }
-.mfSelect.show .value:after {
+.mfSelect.show .value::after {
   -webkit-transform: rotate(0deg) scale(1);
   transform: rotate(0deg) scale(1);
 }
@@ -12651,17 +12644,13 @@ button::-moz-focus-inner {
 }
 
 .mfp-close {
-  width: 44px;
-  height: 44px;
   line-height: 44px;
-  position: absolute;
   right: 0;
   top: 0;
   text-decoration: none;
   text-align: center;
   opacity: 0.65;
   filter: alpha(opacity=65);
-  padding: 0 0 18px 10px;
   color: #fff;
   font-style: normal;
   font-size: 28px;
@@ -13203,8 +13192,4 @@ img.mfp-img {
 .gallery > div:nth-child(2),
 .gallery > div:nth-child(3) {
   display: block;
-}
-
-.edit_fonts  {
-  font-family: sans-serif;
 }

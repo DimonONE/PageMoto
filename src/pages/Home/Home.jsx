@@ -6,7 +6,7 @@ import { Header } from "./components/Header/Header"
 
 export const HomePage = (props) => {
     return(
-        <div className={style.home_page}>
+        <div className={style.home} id="home_page">
             <Header />
             <Content />
             <Footer />

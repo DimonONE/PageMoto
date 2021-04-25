@@ -1,60 +1,17 @@
 import React, {useState} from "react"
-import { NavLink, Redirect } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { YouTel } from "../../../../common/YouTel"
 
 import page1_img_06 from "../../../../images/page1-img_06.jpg"
 import page1_img_07 from "../../../../images/page1-img_07.jpg"
-import page1_img_03_original from "../../../../images/page1-img_03_original.jpg"
-import page1_img_03 from "../../../../images/page1-img_03.jpg"
-import page1_img_04_original from "../../../../images/page1-img_04_original.jpg"
-import { gallery } from "./LocalState"
-
-const Gallery = (props) => {
-    return(<>
-        <div className="col-md-4">
-            <div className="thumb wow fadeInLeft">
-                <NavLink to="#" alt="">
-                    <img src={props.img} width="683" height="399" alt=""/>
-                    <div className="thumb__overlay"></div>
-                </NavLink>
-            </div>
-        </div>
-        {/* <div><a href="images/gallery/2.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/3.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/4.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/5.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/6.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/7.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/8.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/9.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/10.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/11.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/12.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/13.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/14.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/15.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/16.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/17.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/18.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/19.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/20.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/21.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/22.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/23.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/24.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/25.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/26.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/27.jpg" data-lightbox="image"></a></div>
-          <div><a href="images/gallery/28.jpg" data-lightbox="image"></a></div> */}
-          </>
-    )
-}
+import { Gallery } from "./Gallery/Gallery"
 
 export const Content = (props) => {
     const [values, setValue] = useState('')
     const onChange = (event) => {
         setValue(event.target.value)
     }
+    const [folow, setFolow] = useState(false)
     return(
         <main className="page-content">
         {/* <!-- Welcome --> */}
@@ -85,11 +42,8 @@ export const Content = (props) => {
             </div>
         </section>
         <div data-lightbox="gallery" className="offset-2">
-
-        <div className="row row-no-gutter gallery">
-            {gallery.map( (e) => <Gallery key={e.id} img={e.img}/>)}
+            <Gallery />
         </div>
-    </div>
         {/* <!-- END Gallery--> */}
         
         <div className="container">
@@ -129,34 +83,7 @@ export const Content = (props) => {
                         <p>3. Индивидуальный подход и персональная программа тренировок для каждого.</p>
                             </div>
                         </div>
-                        {/* <!-- <div className="inset-1 relative post">
-                            <article className="event-post text-center text-sm-left">
-                                <time datetime="2016-05-19"  className="text-uppercase text-bold heading-4">
-                                   june 19,2016
-                                 </time>
-                                <h5> <a href="#">2016 Triumph Tiger Explorer first ride</a></h5>
-                                 <p>Triumph has combined state of the art electronics with a host of chassis,
-                                engine and comfort upgrades to transform its big adventure bike. </p>
-                            </article>
-                            <article className="event-post text-center text-sm-left">
-                                <time datetime="2016-05-19" className="text-uppercase text-bold heading-4">
-                                june 19,2016
-                                </time>
-                                <h5> <a href="#">9 bike noises that mean you must
-                                    take action</a></h5>
-                              <img src="images/page1-img_08.jpg" width="470" height="234" alt="">
-                                <p>Does your motor sound like Homer Simpson’s guts after a night on the Duff? Then it’s time to take a
-                                    look at your cooling system. Coolant should circulate silently. </p>
-                            </article>
-                            <article className="event-post text-center text-sm-left">
-                                <time datetime="2016-05-19" className="text-uppercase text-bold heading-4">
-                                   june 19,2016
-                                    </time>
-                                <h5> <a href="#">Should Lorenzo sign for Ducati?</a></h5>
-                                <p>The 2016 MotoGP season hasn't even begun, but reigning champion Jorge Lorenzo is already
-                                    Ducati's prime target for 2017. Should Lorenzo make the switch? </p>
-                            </article>
-                        </div> --> */}
+                      
                     </section>
                     {/* <!-- END Club fresh--> */}
                 </div>
@@ -235,27 +162,19 @@ export const Content = (props) => {
                                         </label>
                                     </div>
                                     <div className="col-sm-6">
-                                        <label data-add-placeholder>
-                                            <select name="message" className="shadow" data-constraints="@NotEmpty">
+                                        <label onClick={() =>  setFolow( !folow && true)} data-add-placeholder className={folow ? "mfSelect" : "mfSelect show focus"}>
+                                            <select name="message" className="shadow" data-constraints="@NotEmpty" >
                                                 <option value="новичок">новичок</option>
                                                 <option value="водитель с опытом">водитель с опытом</option>
                                                 <option value="профессионал">профессионал</option>
                                             </select>
-                                        </label>
-                                        {/* <!-- <label data-add-placeholder>
-                                            <input className="shadow"
-                                                   type="text"
-                                                   name="name"
-                                                   placeholder="Ваше имя"
-                                                   data-constraints="@NotEmpty @LettersOnly"/>
-                                        </label> --> */}
+                                            <span className="mfValidation"></span>
+                                            <div className="value"></div>
+                                            <ul className="dropdown"></ul>
+                                            <span className="mfPlaceHolder"></span>
+                                        </label>                               
                                     </div>
                                 </div>
-                                {/* <!-- <label data-add-placeholder >
-                                    <textarea  className="shadow" name="message" placeholder="Сообщение"
-                                              data-constraints="@NotEmpty"></textarea>
-                                </label> --> */}
-
                                 <div className="mfControls text-center text-md-left btn-contact">
                                     <button className="btn btn-lg btn-primary" type="submit">Отправить</button>
                                 </div>

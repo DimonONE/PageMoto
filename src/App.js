@@ -4,9 +4,8 @@ import "./App.css"
 
 const App = (props) => {
   return (
-    <div classNameName="App">
-        <Route path="/home"></Route>
-      <HomePage />
+    <div className="App">
+        <Route path="/"><HomePage /></Route>
     </div>
   );
 }
