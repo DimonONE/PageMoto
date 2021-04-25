@@ -8,27 +8,24 @@ import { Fade } from "react-awesome-reveal";
 const FullImg = (props) => {
     let [idImgs, setIdImgs] = useState(1)
     const endImgs = gallery.Gallery.length
-    // cons isIdOriginal = props.idOriginal <= 3 || props.idOriginal >= 1
-    const isIdOriginal = false
+    const isIdOriginal = props.idOriginal <= 3 && props.idOriginal >= 1 
 
     const Scroll = () => {
         props.setFullIMG(false)
         document.body.style.overflow = "visible"
     }
 
-
     const imgLeft = () => {
-        // props.setIdOriginal(3)
-        // isIdOriginal 
-        // ? 
-        // : 
-        // setIdImgs(idImgs <= 1 ? idImgs=endImgs : --idImgs)
+        isIdOriginal 
+        ? props.setIdOriginal(props.idOriginal-1)
+        : setIdImgs(idImgs <= 1 ? idImgs=endImgs : --idImgs)
     }
     
     const imgRigt = () => {
-        // setIdImgs(idImgs >= endImgs ? idImgs=1 : ++idImgs)
+        isIdOriginal 
+        ? props.setIdOriginal(props.idOriginal+1)
+        : setIdImgs(idImgs >= endImgs ? idImgs=1 : ++idImgs)
     }
-    
 
     document.body.style.overflow = "hidden"
     return <div className={style.window__full_img}>
@@ -38,8 +35,8 @@ const FullImg = (props) => {
                     </div>
                     <button onClick={imgLeft} title="Previous (Left arrow key)" type="button" className="mfp-arrow mfp-arrow-left mfp-prevent-close"/>
                         {isIdOriginal
-                            ? <img src={props.img} alt=""/> 
-                            : gallery.Gallery.map((e) => <div key={e.id}> {idImgs === e.id && <img src={e.img} alt=""/>} </div> ) }
+                            ? gallery.Original.map((e) => <span key={e.id} onClick={imgRigt}> {props.idOriginal === e.id && <img src={e.original} alt=""/>} </span> ) 
+                            : gallery.Gallery.map((e) => <span key={e.id} onClick={imgRigt}> {idImgs === e.id && <img src={e.img} alt=""/>} </span> ) }
                     <button onClick={ imgRigt }  title="Previous (Left arrow key)" type="button" className="mfp-arrow mfp-arrow-right mfp-prevent-close"/>
                 </div>
             </div>
@@ -48,7 +45,6 @@ const FullImg = (props) => {
 const Photos = (props) => {
     const onClick = () => {
         props.setFullIMG(true)
-        props.setOriginal(props.original)
         props.setIdOriginal(props.id)
     }
     return(<>
@@ -68,17 +64,15 @@ const Photos = (props) => {
 
 export const Gallery = (props) => {
     const [fullIMG, setFullIMG] = useState(false)
-    let [original , setOriginal] = useState("")
     let [idOriginal , setIdOriginal] = useState(1)
     return(
         <>
             <div className="row row-no-gutter gallery">
                 {gallery.Original.map( (e) => <Photos key={e.id} {...e} 
-                setOriginal={setOriginal} setIdOriginal={setIdOriginal} setFullIMG={setFullIMG}/>)}
+                 setIdOriginal={setIdOriginal} setFullIMG={setFullIMG}/>)}
             </div>
             <div className={fullIMG ? style.full_window : undefined}>
-                    {fullIMG && <FullImg img={original} idOriginal={idOriginal} setOriginal={setOriginal}
-                     setIdOriginal={setIdOriginal} setFullIMG={setFullIMG}/>}    
+                    {fullIMG && <FullImg idOriginal={idOriginal} setIdOriginal={setIdOriginal} setFullIMG={setFullIMG}/>}    
             </div>
         </>
     )
