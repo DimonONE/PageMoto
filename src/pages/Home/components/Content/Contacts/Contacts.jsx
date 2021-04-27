@@ -3,6 +3,7 @@ import style from "./Contacts.module.css"
 import { YouTel } from "../../../../../common/YouTel"
 
 export const Contacts = (props) => {
+    const [err, setErr] = useState(false)
     const [folow, setFolow] = useState(false)
     const onClick = (e) => {
         setFolow( !folow && true)
@@ -29,7 +30,7 @@ export const Contacts = (props) => {
                                     <div className="row">
                                         <div className="col-sm-6">
                                             <label data-add-placeholder>
-                                                <YouTel placeholder={"Ваш телефон"} />
+                                            <YouTel err={err} setErr={setErr} placeholder={"Ваш телефон"} />
                                             </label>
                                         </div>
                                         {/* <div className="col-sm-6">
@@ -53,11 +54,9 @@ export const Contacts = (props) => {
                                                 </div>
                                             </label>                               
                                         </div>
-
-
                                     </div>
                                     <div className="mfControls text-center text-md-left btn-contact">
-                                        <button className="btn btn-lg btn-primary" type="submit">Отправить</button>
+                                        <button disabled={err} className="btn btn-lg btn-primary" type="submit">Отправить</button>
                                     </div>
                                     <div className="mfInfo"></div>
                                 </fieldset>

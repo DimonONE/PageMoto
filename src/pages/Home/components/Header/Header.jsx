@@ -1,9 +1,9 @@
-import React from "react"
+import React,{useState} from "react"
 import { NavLink } from "react-router-dom"
 import { YouTel } from "../../../../common/YouTel";
 
 export const Header = (props) => {
-
+    const [err, setErr] = useState(false)
 
     return(
     <header className="page-header">
@@ -32,10 +32,10 @@ export const Header = (props) => {
                           {/* <!-- END RD Mailform Type --> */}
                           <fieldset>
                               <label data-add-placeholder>
-                                <YouTel  placeholder={"+7 (999) 99-99-99"} />
+                                <YouTel err={err} setErr={setErr} placeholder={"+7 (999) 99-99-99"} />
                               </label>
                               <div className="mfControls text-center text-md-left">
-                                  <button className="btn btn-lg btn-primary text-uppercase" type="submit">Получить консультацию</button>
+                                  <button className="btn btn-lg btn-primary text-uppercase" type="submit" disabled={err}>Получить консультацию</button>
                               </div>
                               <div className="mfInfo">ывфыв</div>
                           </fieldset>
