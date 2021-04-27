@@ -2204,7 +2204,6 @@ h4 + p {
   background-color: #fff;
 }
 .number_section-var-1 .number_section {
-  /*background: #fff;*/
   background: rgba(255, 255, 255, 0.85);
 }
 
@@ -2214,10 +2213,6 @@ h4 + p {
 
 .round {
   border-radius: 50%;
-}
-
-.shadow {
-  box-shadow: inset 4px 4px 3px rgba(0, 0, 0, 0.07);
 }
 
 /*
@@ -11925,184 +11920,6 @@ html.boxed .rd-navbar--is-clone {
 .mfInput input:-webkit-autofill ~ .mfIcon span:before,
 .mfInput textarea:-webkit-autofill ~ .mfIcon span:before {
   color: #2d2d2d;
-}
-
-/*
-* MF Select
-*/
-.mfSelect {
-  position: relative;
-}
-.mfSelect select {
-  padding: 0px 1px 1px 0;
-  z-index: -9999999;
-  border: medium none;
-}
-.mfSelect .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 15px;
-  max-height: 300px;
-  opacity: 0;
-  visibility: hidden;
-  border: 1px solid #888;
-  box-shadow: 3px 4px 8px 0px rgba(0, 0, 0, 0.11);
-  transition: 0.3s all ease-in-out;
-  outline: none;
-  -webkit-appearance: none;
-  font-weight: 500;
-  line-height: 28px;
-  border: 1px solid inherit;
-  background: #fff;
-  color: #1a1a1a;
-  border-radius: 1px;
-  z-index: 1;
-  -webkit-transform: translateY(20px);
-  transform: translateY(20px);
-}
-.mfSelect .dropdown .option {
-  position: relative;
-  z-index: 1;
-  text-transform: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  overflow: hidden;
-  transition: 0.4s all ease-in-out;
-  transition-delay: 0.2s;
-  font-size: 16px;
-  line-height: 30px;
-}
-.mfSelect .dropdown .option.selected {
-  background: #f2f2f2;
-  color: #1a1a1a;
-}
-.mfSelect .dropdown .option:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  background: #ffe51b;
-  opacity: 0;
-  z-index: -1;
-  transition: 0.4s all ease-in-out;
-  -webkit-transform: translate(-20%, -50%);
-  transform: translate(-20%, -50%);
-}
-.mfSelect .dropdown .option:before {
-  content: "\f00c";
-  position: absolute;
-  display: inline-block;
-  left: 15px;
-  color: #fff;
-  font: 400 20px "FontAwesome";
-  line-height: inherit;
-  transition: 0.4s all ease-in-out;
-  -webkit-transform: scale(0) rotate(-60deg);
-  transform: scale(0) rotate(-60deg);
-}
-.mfSelect .dropdown .option:hover {
-  color: #fff;
-  padding-left: 40px;
-  transition-delay: 0s;
-}
-.mfSelect .dropdown .option:hover:before {
-  transition-delay: 0.15s;
-  -webkit-transform: scale(1) rotate(0deg);
-  transform: scale(1) rotate(0deg);
-}
-.mfSelect .dropdown .option:hover:after {
-  width: 1000px;
-  height: 500px;
-  opacity: 1;
-}
-.mfSelect .dropdown:before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 14px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 7px 8px 7px;
-  border-color: transparent transparent #5c5c5c transparent;
-}
-.mfSelect .dropdown:after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 15px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 6px 6px 6px;
-  border-color: transparent transparent #fff transparent;
-}
-.mfSelect .value {
-  cursor: pointer;
-  transition: 0.4s all ease-in-out;
-  font-size: 18px;
-  padding: 17.5px 28px;
-  line-height: 28px;
-  color: #1a1a1a;
-  background: #f3f3f3;
-  border: 1px solid inherit;
-  border-radius: 1px;
-}
-.mfSelect .value::before,
-.mfSelect .value::after {
-  position: absolute;
-  right: 12px;
-  top: 20.5px;
-  width: 24px;
-  height: 24px;
-  font: 400 20px "FontAwesome";
-  line-height: 24px;
-  color: #303030;
-  text-align: center;
-  transition: 0.4s all ease;
-}
-.mfSelect .value::before {
-  content: "\f0c9";
-  -webkit-transform: rotate(0deg) scale(1);
-  transform: rotate(0deg) scale(1);
-}
-.mfSelect .value::after {
-  content: "\f107";
-  font-size: 24px;
-  -webkit-transform: rotate(-180deg) scale(0);
-  transform: rotate(-180deg) scale(0);
-}
-.mfSelect.show .dropdown {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-}
-.mfSelect.show .value {
-  background: #fff;
-  color: #1a1a1a;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.12), 3px 4px 8px 0px rgba(0, 0, 0, 0.11);
-}
-.mfSelect.show .value::before,
-.mfSelect.show .value::after {
-  color: #1a1a1a;
-}
-.mfSelect.show .value::before {
-  -webkit-transform: rotate(90deg) scale(0);
-  transform: rotate(90deg) scale(0);
-}
-.mfSelect.show .value::after {
-  -webkit-transform: rotate(0deg) scale(1);
-  transform: rotate(0deg) scale(1);
 }
 
 /*
