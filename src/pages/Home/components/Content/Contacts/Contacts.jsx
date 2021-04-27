@@ -4,7 +4,9 @@ import { YouTel } from "../../../../../common/YouTel"
 
 export const Contacts = (props) => {
     const [folow, setFolow] = useState(false)
-
+    const onClick = (e) => {
+        setFolow( !folow && true)
+    }
     return(
             <section className="well-md well">
                 <div className="container">
@@ -41,9 +43,14 @@ export const Contacts = (props) => {
                                             </label>                               
                                         </div> */}
                                         <div className="col-sm-6">
-                                            <label onClick={() => setFolow( !folow && true)}  className={folow ? style.mfSelect + " " + style.active_value : style.mfSelect + " " + style.show + " " + style.dropdown }>
+                                            <label onClick={onClick}  className={folow ? style.mfSelect + " " + style.active_value : style.mfSelect + " " + style.show }>
                                                 <label className={`${style.swith_case}`}>новичок</label>
                                                 <span className={style.value} ></span>
+    
+                                                <div className={style.dropdown}>
+                                                    <p>водитель с опытом</p>
+                                                    <p>профессионал</p>
+                                                </div>
                                             </label>                               
                                         </div>
 

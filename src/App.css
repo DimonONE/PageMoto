@@ -2204,6 +2204,7 @@ h4 + p {
   background-color: #fff;
 }
 .number_section-var-1 .number_section {
+  /*background: #fff;*/
   background: rgba(255, 255, 255, 0.85);
 }
 
@@ -2213,6 +2214,10 @@ h4 + p {
 
 .round {
   border-radius: 50%;
+}
+
+.shadow {
+  box-shadow: inset 4px 4px 3px rgba(0, 0, 0, 0.07);
 }
 
 /*
