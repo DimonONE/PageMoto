@@ -19,7 +19,6 @@ export const YouTel = (props) => {
         }
     }
 
-    console.warn("Ошибка -> Warning: findDOMNode")
     return(
         <div>
             <React.StrictMode>

@@ -5,7 +5,7 @@ import { YouTel } from "../../../../../common/YouTel"
 export const Contacts = (props) => {
     const [err, setErr] = useState(false)
     const [folow, setFolow] = useState(false)
-    const onClick = (e) => {
+    const isFollow = () => {
         setFolow( !folow && true)
     }
     return(
@@ -34,15 +34,16 @@ export const Contacts = (props) => {
                                             </label>
                                         </div>
                                         <div className="col-sm-6">
-                                            <label onClick={onClick}  className={!folow ? style.mfSelect + " " + style.un_folow : style.mfSelect + " " + style.show + " " + style.folow}>
-                                                <label className={`${style.swith_case}`}>новичок</label>
-                                                <span className={style.value} ></span>
-    
-                                                <div className={style.dropdown}>
-                                                    <p>водитель с опытом</p>
-                                                    <p>профессионал</p>
-                                                </div>
-                                            </label>                               
+                                            <span onClick={isFollow} className={!folow ? style.mfSelect + " " + style.un_folow : style.mfSelect + " " + style.show + " " + style.folow}>
+                                                <label className={style.swith_case}>новичок</label>
+                                                <span className={style.value}></span>
+                                                <span className={style.dropdown_container}>
+                                                    <div className={style.dropdown}>
+                                                        <p className={style.dropdown_value}>водитель с опытом</p>
+                                                        <p className={style.dropdown_value}>профессионал</p>
+                                                    </div>    
+                                                </span>
+                                            </span>                               
                                         </div>
                                     </div>
                                     <div className="mfControls text-center text-md-left btn-contact">
