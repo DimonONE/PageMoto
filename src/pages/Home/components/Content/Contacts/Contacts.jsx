@@ -33,18 +33,8 @@ export const Contacts = (props) => {
                                             <YouTel err={err} setErr={setErr} placeholder={"Ваш телефон"} />
                                             </label>
                                         </div>
-                                        {/* <div className="col-sm-6">
-                                            <label onClick={() => setFolow( !folow && true)}  className={folow ? style.mfSelect + " " + style.active_value : style.mfSelect + " " + style.show + " " + style.dropdown }>
-                                                <span aria-disabled className={style.value} ></span>
-                                                    <select name="message" className={`${style.swith_case} `}>
-                                                        <option className={style.options} value="новичок">новичок</option>
-                                                        <option className={style.options} value="водитель с опытом">водитель с опытом</option>
-                                                        <option className={style.options} value="профессионал">профессионал</option>
-                                                    </select>
-                                            </label>                               
-                                        </div> */}
                                         <div className="col-sm-6">
-                                            <label onClick={onClick}  className={folow ? style.mfSelect + " " + style.active_value : style.mfSelect + " " + style.show }>
+                                            <label onClick={onClick}  className={!folow ? style.mfSelect + " " + style.un_folow : style.mfSelect + " " + style.show + " " + style.folow}>
                                                 <label className={`${style.swith_case}`}>новичок</label>
                                                 <span className={style.value} ></span>
     
