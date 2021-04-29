@@ -39,3 +39,9 @@
     margin-right: -110px;
   }
 }
+@media (max-width: 553px) {
+  .gallery {
+    margin: 0;
+    height: 100%;
+  }
+}

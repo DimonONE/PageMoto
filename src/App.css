@@ -5647,6 +5647,13 @@ html:not(.lt-ie10) .not-animated {
   font-weight: normal;
   font-style: normal;
 }
+
+@media (max-width: 553px) {
+  h3.edit_fonts {
+    font-size: 26px;
+  }
+}
+
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -9861,6 +9868,13 @@ html:not(.lt-ie10) .box-lg .box__bottom {
   text-align: center;
   transition: 0.3s all ease;
 }
+
+@media (max-width: 553px) {
+  .thumb__overlay {
+    display: none;
+  }
+}
+
 .thumb__overlay > * {
   vertical-align: middle;
   -webkit-transform: translateY(30px);
@@ -9933,7 +9947,16 @@ html:not(.lt-ie10) .box-lg .box__bottom {
   display: block;
   letter-spacing: 4.5px;
 }
-@media (min-width: 1280px) {
+@media (max-width: 553px) {
+  .brand .brand_name {
+    font-size: 100px;
+    line-height: 20px;
+  }
+
+  .brand .brand_slogan {
+    font-size: 36px;
+    line-height: 30px;
+  }
 }
 
 /*

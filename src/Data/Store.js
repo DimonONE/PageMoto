@@ -69,7 +69,7 @@ export const gallery = {
 
 }
 
-export let Validator = {
+export const Validator = {
         '@NotEmpty': {
             message: 'This field should not be empty.'
         },
