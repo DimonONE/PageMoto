@@ -5,15 +5,40 @@ import { YouTel } from "../../../../../common/YouTel"
 export const Contacts = (props) => {
     const [err, setErr] = useState(false)
     const [folow, setFolow] = useState(false)
+    let [experience, setExperience] = useState("новичёк")
+    let [v2, setV2] = useState("водитель с опытом")
+    let [v3, setV3] = useState("профессионал")
     const isFollow = () => {
         setFolow( !folow && true)
     }
+
+    const setValueCase = (v) => {
+        function swap(a, b) {
+            return [b, a]
+        }
+        switch(v) {
+            case "новичёк": {
+                [experience, v2] = swap(experience, v2);
+               return (setExperience(experience), setV2(v2))
+            } 
+            case "водитель с опытом": {
+                [experience, v2] = swap(experience, v2);
+                return (setExperience(experience), setV2(v2))
+            } 
+            case "профессионал": {
+                [experience, v3] = swap(experience, v3);
+                return (setExperience(experience), setV3(v3))
+            }
+            default: return v
+        }
+    }
+
     return(
             <section className="well-md well">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            <div className="number_section-var-4  number_section-var-2  number_section-var-1  relative">  <span className="counter"></span>
+                            <div className="number_section-var-4  number_section-var-2  number_section-var-1  relative"> <span className="counter"></span>
                                 <div className="number_section text-lg-left text-center"><h4>Контакты:</h4>
                                     {/* <!-- <h3> & location</h3> --> */}
                                 </div>
@@ -35,12 +60,12 @@ export const Contacts = (props) => {
                                         </div>
                                         <div className="col-sm-6">
                                             <span onClick={isFollow} className={!folow ? style.mfSelect + " " + style.un_folow : style.mfSelect + " " + style.show + " " + style.folow}>
-                                                <label className={style.swith_case}>новичок</label>
+                                                <label className={style.swith_case}> {experience} </label>
                                                 <span className={style.value}></span>
                                                 <span className={style.dropdown_container}>
                                                     <div className={style.dropdown}>
-                                                        <p className={style.dropdown_value}>водитель с опытом</p>
-                                                        <p className={style.dropdown_value}>профессионал</p>
+                                                        <p className={style.dropdown_value} onClick={() => setValueCase(experience)}>{v2}</p>
+                                                        <p className={style.dropdown_value}onClick={() => setValueCase("профессионал")}>{v3}</p>
                                                     </div>    
                                                 </span>
                                             </span>                               
